@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+*{
+  margin:0;
+  padding:0;
+}
+.minicontainer{
+  transition: all 0.5s ease-in
+}
+.boton{
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    font-size: 30px;
+    height: 50px;
+    opacity:0.7;
+   border:1px solid orange;
+}
+.minicontainer .card{
+  width:15rem;
+}
+@media only screen and (max-width: 1000px) {
+  .time-div{
+    width:18rem !important;
+  }
+  .forecast .card{
+    width:10rem !important;
+  }
+}

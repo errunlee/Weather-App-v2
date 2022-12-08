@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Weather App</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand h1" href="#">WeatherApp</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" id='searchInput' type="search" placeholder="Enter city name here" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" id='search'>Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+  <div class='todaycontainer container d-flex align-items-center justify-content-center my-2'>
+    <div class='minicontainer d-lg-flex align-items-center justify-content-center'>
+      <div class="card mx-lg-3" style="width: 18rem;">
+        <div class="card-body text-primary shadow-lg p-3 bg-white rounded">
+          <h5 class="card-title text-center font-weight-bol" id='city'>Kathmandu</h5>
+          <p class="card-text h1 text-center" style="font-size:50px"><span id='temp'></span>&#8457</p>
+          <p class='h3 text-center' id='weatherCondition'>...</p>
+        </div>
+      </div>
+      <div class="card d-flex flex-row mx-lg-3" style="width: 18rem;">
+        <div class="card-body shadow-lg p-3 bg-white rounded ">
+          <p class='card-text'>Pressure</p>
+          <p class='card-text'>Wind</p>
+          <p class='card-text'>Sunrise</p>
+          <p class='card-text'>Sunset</p>
+        </div>
+        <div class='card-body shadow-lg p-3 rounded bg-primary text-light'>
+          <p class='card-text' id='pressure'></p>
+          <p class='card-text' id='wind'></p>
+          <p class='card-text' id='humidity'></p>
+          <p class='card-text' id='sunrise'></p>
+          <p class='card-text' id='sunset'></p>
+        </div>
+      </div>
+      <div class="card mx-lg-3 time-div" style="width: 23rem; background:linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url('images/time-bg.jpg')">
+        <div class="card-body text-light">
+          <div class='text-center'>
+            <h3 class='text-center d-inline' id='locationcity'>...</h3>
+            <h3 id='country' class='d-inline'></h3>
+          </div><br>
+          <div class='text-center'>
+            <h4>Latitude:<span id='latitude'></span></h4>
+            <h4>Longitude:<span id='longitude'></span></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <h2 class='lead text-center my-3' style='font-size:2rem'>Forecast</h2>  
+  <div class='container forecast my-1 text-center d-flex position-relative overflow-hidden' style='height:500px'> 
+    <button class='boton' id='prevBtn' onclick="scoll(1)" style="top: 15%;z-index: 1;position: absolute;"><</button>
+    
+      <div id='scont' class="minicontainer row justify-content-space-evenly"style='position: absolute;flex-wrap: nowrap;left:80px;'>
+        <div class="card mx-3" >
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day0'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+
+        <div class="card mx-3">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day1'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+        <div class="card mx-3">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day2'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+        <div class="card mx-3">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day3'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+        <div class="card mx-3">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day4'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+        <div class="card mx-3"">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day5'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+        <div class="card mx-3">
+          <div class='bg-primary text-light h5 rounded-top' style='height:35px'>
+            <p class='day' id='day6'>...</p>
+          </div>
+          <div class="card-body">
+            <p>temp(high): <span class='hightemp'></span></p>
+            <p> temp(low):<span class='lowtemp'></span></p>
+            <p> Condition: <span class='wind'></span></p>
+          </div>
+        </div>
+      </div>
+            <button class='boton' id='nextBtn' onclick="scoll(-1)" style="top: 15%;z-index: 1;position: absolute;right:0;">></button>
+    
+  </div>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>
