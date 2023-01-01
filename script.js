@@ -29,7 +29,7 @@ fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${inputValue}&form
 }).then((val)=>{
   console.log(val)
   city.innerHTML=val.location.city;
-  temp.innerHTML=((val.current_observation.condition.temperature)-32)*(5/9);
+  temp.innerHTML=Math.floor(((val.current_observation.condition.temperature)-32)*(5/9));
   weatherCondition.innerHTML=val.current_observation.condition.text;
   pressure.innerHTML=val.current_observation.atmosphere.pressure;
   wind.innerHTML=val.current_observation.wind.chill;
@@ -41,8 +41,8 @@ fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${inputValue}&form
   longitude.innerHTML=val.location.long;
   for(let i=0;i<7;i++){
     comingdays[i].innerHTML=val.forecasts[i].day;
-    upHighTemp[i].innerHTML=val.forecasts[i].high;
-    upLowTemp[i].innerHTML=val.forecasts[i].low;
+    upHighTemp[i].innerHTML=Math.floor((val.forecasts[i].high-32)*(5/9));
+    upLowTemp[i].innerHTML=Math.floor((val.forecasts[i].low-32)*(5/9));
     upWind[i].innerHTML=val.forecasts[i].text;
   }
 })
