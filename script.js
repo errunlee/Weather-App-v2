@@ -29,7 +29,7 @@ fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${inputValue}&form
 }).then((val)=>{
   console.log(val)
   city.innerHTML=val.location.city;
-  temp.innerHTML=val.current_observation.condition.temperature;
+  temp.innerHTML=((val.current_observation.condition.temperature)-32)*(5/9);
   weatherCondition.innerHTML=val.current_observation.condition.text;
   pressure.innerHTML=val.current_observation.atmosphere.pressure;
   wind.innerHTML=val.current_observation.wind.chill;
